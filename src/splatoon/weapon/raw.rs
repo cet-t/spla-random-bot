@@ -41,8 +41,6 @@
 
 #[derive(Debug, Clone, serde::Deserialize)]
 pub struct Weapon {
-    key: String,
-    aliases: Vec<String>,
     #[serde(alias = "type")]
     pub wtype: Key,
     pub name: Name,
@@ -52,7 +50,6 @@ pub struct Weapon {
 
 #[derive(Debug, Clone, serde::Deserialize)]
 pub struct Key {
-    pub key: String,
     pub name: Name,
 }
 
