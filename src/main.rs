@@ -1,5 +1,6 @@
 mod commands;
 mod macros;
+mod splatoon;
 mod toolkit;
 
 use poise::builtins::register_globally;
@@ -13,7 +14,7 @@ pub type Command = poise::Command<crate::Data, anyhow::Error>;
 
 fn setup_presence(ctx: &serenity::all::Context) {
     ctx.set_presence(
-        Some(ActivityData::listening("serenity template")),
+        Some(ActivityData::listening("packaging...")),
         OnlineStatus::DoNotDisturb,
     );
 }

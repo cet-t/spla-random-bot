@@ -1,10 +1,10 @@
 [package]
-name = "serenity-template"
+name = "packable-v2"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-poise = { version = "0.6.2", features = ["chrono"] }
+poise = { version = "0.7", features = ["chrono"] }
 serenity = { version = "0.12.5", features = ["chrono"] }
 seren = { git = "https://github.com/cet-t/seren" }
 colours = { git = "https://github.com/cet-t/colours" }
@@ -12,5 +12,13 @@ anyhow = "1.0.104"
 log = "0.4.34"
 chrono = "0.4.45"
 tokio = { version = "1.53.1", features = ["full"] }
-urng = "0.13.0"
 dotenvy = "0.15.7"
+moelle = "0.1.0"
+moelle_a = { git = "https://github.com/cet-t/moelle_a", features = ["jsf"] }
+moelle_sample = { git = "https://github.com/cet-t/moelle_sample", features = [
+  "choice",
+] }
+reqwest = "0.13.5"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+strum = { version = "0.28", features = ["derive"] }

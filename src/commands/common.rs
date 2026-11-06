@@ -1,9 +1,9 @@
-use std::time::Instant;
+use std::time::{Instant, SystemTime};
 
+use moelle_sample::Choice;
 use poise::serenity_prelude::{Mentionable, User};
 use poise::{CreateReply, serenity_prelude::CreateEmbed};
 use seren::TimestampConvert;
-use urng::Choice;
 
 use crate::{Context, icode, is_bot, reply};
 
@@ -14,8 +14,9 @@ pub async fn greet(ctx: Context<'_>) -> anyhow::Result<()> {
 
     const GREETINGS: [&str; 3] = ["Hello", "こんにちは", "謝謝"];
 
-    let mut rng = urng::SplitMix32::default();
-    let reply = reply!("{}", rng.choice(&GREETINGS));
+    let now = SystemTime::now().elapsed()?;
+    let mut rng = moelle_a::Jsf32::from(now.as_secs() as u32);
+    let reply = reply!("{}", rng.choice(&GREETINGS).unwrap_or(&"挨拶しないマン"));
     ctx.send(reply).await?;
 
     Ok(())
