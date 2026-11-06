@@ -1,5 +1,3 @@
-use std::time::SystemTime;
-
 use moelle_a::Jsf32;
 use moelle_sample::Choice;
 use poise::ChoiceParameter;
@@ -12,12 +10,12 @@ use crate::{
     },
 };
 
-#[poise::command(slash_command)]
+#[poise::command(slash_command, description_localized("ja", "武器抽選"))]
 pub async fn weapon(
     ctx: Context<'_>,
-    main: Option<MainFilter>,
-    sub: Option<SubFilter>,
-    special: Option<SpecialFilter>,
+    #[rename = "メインウェポン"] main: Option<MainFilter>,
+    #[rename = "サブウェポン"] sub: Option<SubFilter>,
+    #[rename = "スペシャルウェポン"] special: Option<SpecialFilter>,
 ) -> anyhow::Result<()> {
     is_bot!(ctx);
 
@@ -60,8 +58,9 @@ pub async fn weapon(
         ctx.send(reply!("該当なし").ephemeral(true)).await?;
     } else {
         let mut rng = {
-            let now = SystemTime::now().elapsed()?;
-            Jsf32::from(now.as_nanos().rotate_left(12) as u32)
+            let now = chrono::Utc::now();
+            let id = ctx.author().id.get();
+            Jsf32::from(now.timestamp().wrapping_add(id as i64) as u32)
         };
         let Some(w) = rng.choice(&weapons) else {
             ctx.send(reply!("error: `{}:{}`", file!(), line!())).await?;

@@ -1181,26 +1181,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7e036b411754132fd6b74e94b74e9a13c5cf606fa93d1885c35860d3060820b1"
 
 [[package]]
-name = "packable-v2"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "chrono",
- "colours",
- "dotenvy",
- "log",
- "moelle_a",
- "moelle_sample",
- "poise 0.7.1",
- "reqwest 0.13.5",
- "serde",
- "serde_json",
- "seren",
- "serenity",
- "tokio",
-]
-
-[[package]]
 name = "parking_lot"
 version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2017,6 +1997,26 @@ checksum = "c3d1e2c7f27f8d4cb10542a02c49005dbd6e93095799d6f3be745fae9f8fedd4"
 dependencies = [
  "libc",
  "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "spla-random-bot"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "colours",
+ "dotenvy",
+ "log",
+ "moelle_a",
+ "moelle_sample",
+ "poise 0.7.1",
+ "reqwest 0.13.5",
+ "serde",
+ "serde_json",
+ "seren",
+ "serenity",
+ "tokio",
 ]
 
 [[package]]
