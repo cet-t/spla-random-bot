@@ -1,4 +1,4 @@
-use moelle_a::Jsf32;
+use moelle_a::Biski64;
 use moelle_sample::Choice;
 use poise::ChoiceParameter;
 
@@ -60,7 +60,7 @@ pub async fn weapon(
         let mut rng = {
             let now = chrono::Utc::now();
             let id = ctx.author().id.get();
-            Jsf32::from(now.timestamp().wrapping_add(id as i64) as u32)
+            Biski64::from(now.timestamp().wrapping_add(id as i64) as u64)
         };
         let Some(w) = rng.choice(&weapons) else {
             ctx.send(reply!("error: `{}:{}`", file!(), line!())).await?;
