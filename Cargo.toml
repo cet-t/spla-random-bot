@@ -1,6 +1,6 @@
 [package]
 name = "spla-random-bot"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 
 [dependencies]
@@ -13,7 +13,10 @@ log = "0.4.34"
 chrono = "0.4.45"
 tokio = { version = "1.53.1", features = ["full"] }
 dotenvy = "0.15.7"
-moelle_a = { git = "https://github.com/cet-t/moelle_a", features = ["jsf"] }
+moelle_a = { git = "https://github.com/cet-t/moelle_a", features = [
+  "jsf",
+  "biski",
+] }
 moelle_sample = { git = "https://github.com/cet-t/moelle_sample", features = [
   "choice",
 ] }
