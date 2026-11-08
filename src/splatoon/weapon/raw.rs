@@ -53,8 +53,8 @@ pub struct Key {
     pub name: Name,
 }
 
-#[allow(non_snake_case)]
 #[derive(Debug, Clone, serde::Deserialize)]
 pub struct Name {
-    pub ja_JP: String,
+    #[serde(rename = "ja_JP")]
+    pub ja_jp: String,
 }

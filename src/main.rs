@@ -50,7 +50,8 @@ fn build_fw() -> Framework<self::Data, anyhow::Error> {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let mut client = ClientBuilder::new(token!()?, GatewayIntents::all())
+    let intents = GatewayIntents::MESSAGE_CONTENT | GatewayIntents::DIRECT_MESSAGES;
+    let mut client = ClientBuilder::new(token!()?, intents)
         .framework(build_fw())
         .await?;
     client.start().await?;
