@@ -106,6 +106,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b588b76d00fde79687d7646a9b5bdf3cc0f655e0bbd080335a95d7e96f3587da"
 
 [[package]]
+name = "bitflags2"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b3c74f4b1bb1aa28efcd00e843ef65bb4dbbcf9d3bfa39cc1aafdc135cbcd361"
+dependencies = [
+ "bitflags2-derive",
+]
+
+[[package]]
+name = "bitflags2-derive"
+version = "0.2.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "24541525b581e23811bcbed08b8b9d03807840e50a8e3919bce232386bcb999a"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 3.0.3",
+]
+
+[[package]]
 name = "block-buffer"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1153,10 +1173,27 @@ dependencies = [
 [[package]]
 name = "moelle_a"
 version = "0.1.0"
+source = "git+https://github.com/cet-t/moelle_a?rev=2c87faf#2c87fafc6f2e5ddf908d6b3ea2937bab6149a9cf"
+dependencies = [
+ "moelle",
+ "splitmix",
+]
+
+[[package]]
+name = "moelle_a"
+version = "0.1.0"
 source = "git+https://github.com/cet-t/moelle_a#2c87fafc6f2e5ddf908d6b3ea2937bab6149a9cf"
 dependencies = [
  "moelle",
  "splitmix",
+]
+
+[[package]]
+name = "moelle_sample"
+version = "0.1.0"
+source = "git+https://github.com/cet-t/moelle_sample?rev=60558eb#60558eb601a583ca556d79eac64876c6aeb5990a"
+dependencies = [
+ "moelle",
 ]
 
 [[package]]
@@ -1885,6 +1922,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "seren-ex"
+version = "1.0.0-pre.1"
+source = "git+https://github.com/cet-t/seren-ex?rev=024c905#024c9056f6ad0d178309ec4bc63d1a15e5d600c5"
+dependencies = [
+ "anyhow",
+ "bitflags2",
+ "chrono",
+ "colours",
+ "dotenvy",
+ "log",
+ "moelle_a 0.1.0 (git+https://github.com/cet-t/moelle_a?rev=2c87faf)",
+ "moelle_sample 0.1.0 (git+https://github.com/cet-t/moelle_sample?rev=60558eb)",
+ "poise 0.7.1",
+ "seren",
+ "serenity",
+ "tokio",
+]
+
+[[package]]
 name = "serenity"
 version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2029,13 +2085,14 @@ dependencies = [
  "dotenvy",
  "enum-iterator",
  "log",
- "moelle_a",
- "moelle_sample",
+ "moelle_a 0.1.0 (git+https://github.com/cet-t/moelle_a)",
+ "moelle_sample 0.1.0 (git+https://github.com/cet-t/moelle_sample)",
  "poise 0.7.1",
  "reqwest 0.13.5",
  "serde",
  "serde_json",
  "seren",
+ "seren-ex",
  "serenity",
  "tokio",
 ]
